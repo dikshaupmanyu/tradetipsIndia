@@ -1,0 +1,84 @@
+ <footer class="footer py-3 mt-md-4">
+    <div class="container">
+      <div class="footer-content">
+        <div class="d-sm-flex text-lg-left text-center justify-content-between align-items-center">
+          <a class="navbar-brand" href="/">
+            <img src="images/logo.png" alt="logo">
+          </a>
+<!--           <button type="button" class="btn dark-btn rounded  px-4">Download App Now <br>Coming Soon</button>
+ -->        </div>
+        <div class="separation-line my-3"></div>
+        <div class="d-md-flex text-lg-left text-center justify-content-between align-items-center">
+          <div class="socail-media mb-2 mb-md-0">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="javascript:;">
+                  <i class="fa fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:;">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="javascript:;">
+                  <i class="fa fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="bottom-menu list-inline mb-0">
+            <li class="list-inline-item d-block d-sm-inline">
+              <a href="javascript:;">
+                TradeTipsIndia 2022 All Rights Reserved
+              </a>
+            </li>
+            <li class="list-inline-item d-none d-sm-inline">
+              <a href="javascript:;">
+                |
+              </a>
+            </li>
+            <li class="list-inline-item d-block d-sm-inline">
+              <a href="/terms">
+                Terms & Condition
+              </a>
+            </li>
+            <li class="list-inline-item d-none d-sm-inline">
+              <a href="javascript:;">
+                |
+              </a>
+            </li>
+            <li class="list-inline-item d-block d-sm-inline">
+              <a href="/privacy">
+                Privacy Policy
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(".navbar-toggler").click(function () {
+      $("body").toggleClass("opne-menu");
+    });
+    $(".nav-item .nav-link").click(function () {
+      $("body").toggleClass("opne-menu");
+    });
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 120) {
+        $('header').addClass('fixed');
+      } else {
+        $('header').removeClass('fixed');
+      }
+    }); 
+  </script>
+</body>
+
+</html>
