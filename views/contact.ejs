@@ -33,20 +33,24 @@ input[type=submit]:hover {
         <div class="section-sub-head mb-3 text-center primary-color">
           Contact Us
         </div>
-        <form action="/action_page.php">
+        <form method="post" id="dataContactss">
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required="required">
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required="required">
+
+     <label for="email">Email</label>
+    <input type="email" class="form-control" id="emails" name="email" placeholder="Your Email.." required="required">
+
 
     <label for="phone">Phone</label>
-    <input type="text" id="phone" name="phone" placeholder="Your phone no..">
+    <input type="text" id="phone" name="phone" placeholder="Your phone no.." required="required">
     
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <label for="subject">Comment</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required="required"></textarea>
 
-    <input class="btn dark-btn rounded px-4 mb-4" type="submit" value="Submit">
+    <input class="btn dark-btn rounded px-4 mb-4" type="button" value="Submit" id="contactSubmit">
   </form>
       </div>
     </section>
@@ -56,3 +60,55 @@ input[type=submit]:hover {
   </main>
 
   <% include partials/footer %>
+<script type="text/javascript">
+  $("#contactSubmit").on('click', function (e) {
+// var tokens = "eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImphaW4uYWthc2hAbm92YXNvZnRjb3Jwcy5jb20iLCJzdWIiOiI3ZmM5MjRiNy05YTE4LTRhNDctYjJkMS01NDI4ZDNiYzE2MWQiLCJpYXQiOjE2NDM4OTgxODIsImV4cCI6MTY0NDUwMjk4Mn0.rUEFQHsMiZIVk-U_ke31FV02y0HejAy3Lb5_iCpCoAIj4RVGF5gf6G9PS0AzGB3USqh3TwXgSwnnWl801vDZiQ";
+
+var fname = $('#fname').val();
+// alert(fname);
+var lname = $("#lname").val();
+//alert(lname);
+var email = $("#emails").val();
+//alert(email);
+var phone = $("#phone").val();
+//alert(phone);
+var comment = $("#subject").val();
+//alert(comment);
+
+ if(fname == "" || lname == ""  || email == ""  || phone == "" || comment == ""){
+      alert("Please fill all the fields");
+    }else {
+
+       var formdata = new FormData();
+          formdata.append("firstName", fname);
+          formdata.append("lastName", lname);
+          formdata.append("email", email);
+          formdata.append("phone" , phone);
+          formdata.append("comment" , comment);
+
+          var requestOptions = {
+            method: 'POST',
+            // headers: {
+            //         Authorization: 'Bearer '+ tokens
+            //       },
+            body: formdata,
+            redirect: 'follow'
+          };
+
+          fetch("https://apistest.tradetipsapp.com/api/indiaUserContactInformation/addIndiaUserContactInformation", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                  
+                      var datak = JSON.stringify(result);
+                     // alert(datak);
+                      var dataResultp = JSON.parse(datak); 
+                      alert(""+dataResultp.firstName+" your request was submitted successfully");
+                      window.location.reload("/"); 
+                       // document.getElementById("dataContactss").reset();
+
+             })
+            .catch(error => console.log('error', error));
+   }     
+ });
+
+</script>
