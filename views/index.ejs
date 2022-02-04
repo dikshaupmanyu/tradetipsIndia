@@ -34,10 +34,10 @@
               </p>
 
               <div class="head-text text-white my-3">
-               <input type="text" class="form-control" style="border-radius: :50px;" placeholder="Enter Email">
+               <input type="email" id="emails" class="form-control" style="border-radius: :50px;" placeholder="Enter Email">
               </div>
               <p>
-                	<button type="button" class="btn dark-btn rounded px-4 mb-4">Sign Up</button>
+                	<button type="button" class="btn dark-btn rounded px-4 mb-4" id="emailSubmit">Sign Up</button>
               </p>
   
               <!-- <div class="app-platform pt-2">
@@ -370,3 +370,37 @@
   </main>
 
  <% include partials/footer %>
+<script type="text/javascript">
+  $("#emailSubmit").on('click', function (e) {
+var email = $("#emails").val();
+
+ if(email == "" ){
+      alert("Please fill email");
+    }else {
+
+       var formdata = new FormData();
+          formdata.append("email", email);
+
+          var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+          };
+
+          fetch("https://apistest.tradetipsapp.com/api/indiaUserContactInformation/addIndiaUserEmailDetails", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                  
+                      var datak = JSON.stringify(result);
+                     // alert(datak);
+                      var dataResultp = JSON.parse(datak); 
+                      alert("Thankyou for Signup to TradeTips India");
+                      window.location.reload("/"); 
+                       // document.getElementById("dataContactss").reset();
+
+             })
+            .catch(error => console.log('error', error));
+   }     
+ });
+
+</script>
