@@ -8,6 +8,10 @@ var app      = express();
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var http = require('http');
+var https = require('https');
+var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 var path = require('path');
 app.configure(function() {
 
@@ -31,7 +35,8 @@ app.configure(function() {
 
 // routes ======================================================================
 require('./app/routes.js')(app); // load our routes and pass in our app and fully configured passport
-
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(port);
 // launch ======================================================================
-app.listen(port);
+// app.listen(port);
 console.log('The magic happens on port ' + port);
