@@ -40,4 +40,4 @@ var httpsServer = https.createServer(credentials, app);
 httpsServer.listen(3000);
 // launch ======================================================================
 // app.listen(port);
-console.log('The magic happens on port ' + port);
+// console.log('The magic happens on port ' + port);
