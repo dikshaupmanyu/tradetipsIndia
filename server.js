@@ -5,7 +5,7 @@
 var compression = require('compression')
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 8080;
+// var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var http = require('http');
 var https = require('https');
@@ -36,8 +36,8 @@ app.configure(function() {
 
 // routes ======================================================================
 require('./app/routes.js')(app); // load our routes and pass in our app and fully configured passport
-// var httpsServer = https.createServer(credentials, app);
-// httpsServer.listen(port);
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(3000);
 // launch ======================================================================
-app.listen(port);
+// app.listen(port);
 console.log('The magic happens on port ' + port);
