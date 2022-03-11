@@ -37,7 +37,7 @@
                <input type="email" id="emails" class="form-control" style="border-radius: :50px;" placeholder="Enter Email">
               </div>
               <p>
-                	<button type="button" data-toggle="modal" data-target="#myModal" class="btn dark-btn rounded px-4 mb-4" id="emailSubmit">Sign Up</button> 
+                	<button type="button" class="btn dark-btn rounded px-4 mb-4" id="emailSubmit">Sign Up</button> 
                   <h6><a href="https://docs.google.com/forms/d/1iwL9cG37HJHhci0XkYWK1SGWbpU61f2ITo8nA9evDqA/prefill" target="_blank">Take a quick survey to jump up in the waiting-list and get free premium features.</a></h6>
               </p>
 
@@ -47,12 +47,12 @@
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content" style="background: white;color: black;">
-      
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true" style="color: black;"></i></button>
         <!-- Modal Header -->
-        <div class="modal-header">
+       <!--  <div class="modal-header">
           <h4 class="modal-title"></h4>
           <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true" style="color: black;"></i></button>
-        </div>
+        </div> -->
         
         <!-- Modal body -->
         <div class="modal-body">
@@ -78,6 +78,11 @@
     width: 20px;
     height: 20px;
     background :none;
+  }
+
+  .modal-footer{
+    justify-content:center;
+    border-top:none;
   }
 </style>
   
@@ -287,7 +292,7 @@
                 >
               </div>
             </div>
-         
+
             <!-- Modal -->
             <div class="modal fade" id="playVideo" tabindex="-1" aria-labelledby="playVideoLabel"
               aria-hidden="true">
@@ -449,7 +454,10 @@ var email = $("#emails").val();
                      // alert(datak);
                       var dataResultp = JSON.parse(datak); 
                       alert("Thankyou for Signup to TradeTips India");
-                      window.location.reload("/"); 
+                      // window.location.reload("/"); 
+                    $('#myModal').modal('show');
+                      $('#emails').val('');
+
                        // document.getElementById("dataContactss").reset();
 
              })
