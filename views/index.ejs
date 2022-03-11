@@ -37,8 +37,49 @@
                <input type="email" id="emails" class="form-control" style="border-radius: :50px;" placeholder="Enter Email">
               </div>
               <p>
-                	<button type="button" class="btn dark-btn rounded px-4 mb-4" id="emailSubmit">Sign Up</button>
+                	<button type="button" data-toggle="modal" data-target="#myModal" class="btn dark-btn rounded px-4 mb-4" id="emailSubmit">Sign Up</button> 
+                  <h6><a href="https://docs.google.com/forms/d/1iwL9cG37HJHhci0XkYWK1SGWbpU61f2ITo8nA9evDqA/prefill" target="_blank">Take a quick survey to jump up in the waiting-list and get free premium features.</a></h6>
               </p>
+
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background: white;color: black;">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true" style="color: black;"></i></button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p>Take a quick survey to jump up in the waiting-list and get free premium features.</p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a href="https://docs.google.com/forms/d/1iwL9cG37HJHhci0XkYWK1SGWbpU61f2ITo8nA9evDqA/prefill" target="_blank"><button type="button" class="btn dark-btn rounded">Click here</button></a>
+        </div>
+        
+      </div>
+    </div>
+
+<style type="text/css">
+  .modal-header .close{
+    margin:0px;
+    padding: 0px;
+  }
+
+  .modal-dialog button.close{
+    font-size: 25px;
+    width: 20px;
+    height: 20px;
+    background :none;
+  }
+</style>
   
               <!-- <div class="app-platform pt-2">
                 <a href="javascript:;" class="mr-1 mr-md-3">
@@ -230,12 +271,23 @@
         <div class="row">
           <div class="col-lg-6 col-md-8 mx-auto">
             <div class="video-wrap mt-4">
-              <img src="images/video-cover.png" alt="video-cover" class="img-fluid">
+             <!--  <img src="images/video-cover.png" alt="video-cover" class="img-fluid">
               <div class="play-icon text-white my-3" data-toggle="modal" data-target="#playVideo">
                 <img src="images/play-icon.png" class="play-icon" alt="play-icon" width="70">
+              </div> -->
+              <div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+                <embed
+                  src="https://www.youtube.com/embed/vJlUi_kgJ74?autohide=1&autoplay=1"
+                  wmode="transparent"
+                  type="video/mp4"
+                  width="100%" height="100%"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowfullscreen
+                  title="Keyboard Cat"
+                >
               </div>
             </div>
-
+         
             <!-- Modal -->
             <div class="modal fade" id="playVideo" tabindex="-1" aria-labelledby="playVideoLabel"
               aria-hidden="true">
@@ -274,21 +326,23 @@
             <div class="col-lg-5 col-md-6">
               <div class="banner-content text-white text-center text-lg-left">
                 <div class="section-head my-0 my-lg-3">
-                  Download the app and start
-                  Trading with TradeTips India
+                  Do you know you can trade in US Stock market from India?
                 </div>
                 <p class="font-ultralight mb-3">
-                 TradeTips India should be everywhere 
+                 Download our US app to start getting advices
                 </p>
-              <!--   <div class="app-platform pt-2">
-                  <a href="javascript:;" class="mr-1 mr-md-3">
+                <div class="app-platform pt-2">
+                  <a href="https://play.google.com/store/apps/details?id=com.info.tradetips&hl=en_US" class="mr-1 mr-md-3">
                     <img src="images/playstore.png" alt="playstore">
                   </a>
-                  <a href="javascript:;">
+                  <a href="https://apps.apple.com/us/app/tradetips/id1500107937">
                     <img src="images/appstore.png" alt="appstore">
                   </a>
-                </div> -->
-              </div>
+                </div>
+                <br>
+                <p class="font-ultralight mb-3">
+                 TradeTips India coming soon.
+                </p>
             </div>
           </div>
         </div>
